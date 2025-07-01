@@ -49,11 +49,11 @@ jobs:
   maven-central-publish:
     needs: check-tag
     if: needs.check-tag.outputs.MAVEN_CENTRAL == 'true'
-    uses: PuzzlesHQ/.github/workflows/maven-central-publishing.yml@main
+    uses: PuzzlesHQ/Puzzles-Workflows/.github/workflows/maven-central-publishing.yml@main
     secrets: inherit
 
   maven-puzzle-publish:
     needs: check-tag
     if: needs.check-tag.outputs.MAVEN_PUZZLE == 'true'
-    uses: PuzzlesHQ/.github/workflows/maven-puzzle-publishing.yml@main
+    uses: PuzzlesHQ/Puzzles-Workflows/.github/workflows/maven-puzzle-publishing.yml@main
     secrets: inherit
