@@ -19,9 +19,6 @@ on:
         required: true
 
 jobs:
-  check-tag:
-    runs-on: ubuntu-latest
-
   maven-central-publish:
     uses: PuzzlesHQ/Puzzles-Workflows/.github/workflows/maven-central-publishing.yml@main
     secrets: inherit
