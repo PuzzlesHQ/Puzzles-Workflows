@@ -2,6 +2,10 @@ name: Publish project to Maven repository
 
 on:
   workflow_call:
+    inputs:
+      TAG_NAME:
+        required: true
+        type: string
     secrets:
       MAVEN_CENTRAL_USERNAME:
         required: true
