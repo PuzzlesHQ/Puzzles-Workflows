@@ -26,3 +26,6 @@ jobs:
   maven-central-publish:
     uses: PuzzlesHQ/Puzzles-Workflows/.github/workflows/maven-central-publishing.yml@main
     secrets: inherit
+  maven-puzzle-publish:
+    uses: PuzzlesHQ/Puzzles-Workflows/.github/workflows/maven-puzzle-publishing.yml@main
+    secrets: inherit
