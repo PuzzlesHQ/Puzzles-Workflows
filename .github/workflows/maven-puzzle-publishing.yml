@@ -15,7 +15,7 @@ on:
         required: true
 
 jobs:
-  publish:
+  publish-puzzle-maven:
     runs-on: ubuntu-latest
     env:
       MAVEN_URL: ${{ vars.MAVEN_URL }}
