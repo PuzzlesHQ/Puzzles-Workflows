@@ -1,0 +1,14 @@
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '0 0 1,26 * *' # every 1st and 26th of each month at 00:00 UTC
+
+jobs:
+  keep-crmm-cookie-alive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run CRMM keep-alive script
+        run: ./scripts/keep-crmm-cookie-alive.sh
+        env:
+          API_COOKIE: ${{ secrets.crmm-cookie }}

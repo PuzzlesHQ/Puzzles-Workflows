@@ -1,0 +1,72 @@
+name: Publish project to CRMM
+
+on:
+  workflow_call:
+    inputs:
+      api-cookie:
+        required: true
+        type: string
+      project-id:
+        required: true
+        type: string
+      title:
+        required: true
+        type: string
+      changelog:
+        required: true
+        type: string
+      version:
+        required: true
+        type: string
+      loaders:
+        required: true
+        type: string
+      game-versions:
+        required: true
+        type: string
+      primary-file:
+        required: true
+        type: string
+      featured:
+        required: false
+        default: "true"
+        type: string
+      release-channel:
+        required: false
+        default: "release"
+        type: string
+
+jobs:
+  crmm-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 24
+      
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.14'
+
+      - name: Build project
+        run: gradle build
+
+      - name: Publish project to CRMM
+        run: ./scripts/upload-version.sh
+        env:
+          API_COOKIE: ${{ inputs.api-cookie }}
+          PROJECT_ID: ${{ inputs.project-id }}
+          TITLE: ${{ inputs.title }}
+          CHANGELOG: ${{ inputs.changelog }}
+          VERSION: ${{ inputs.version }}
+          LOADERS: ${{ inputs.loaders }}
+          GAME_VERSIONS: ${{ inputs.game-versions }}
+          PRIMARY_FILE: ${{ inputs.primary-file }}
+          FEATURED: ${{ inputs.featured }}
+          RELEASE_CHANNEL: ${{ inputs.release-channel }}
