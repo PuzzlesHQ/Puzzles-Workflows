@@ -1,4 +1,3 @@
-ls -a
 
 echo "keeping CRMM alive"
 
