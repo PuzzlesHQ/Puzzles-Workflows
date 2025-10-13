@@ -54,6 +54,9 @@ jobs:
       - name: Build project
         run: gradle build
 
+      - name: chmod script
+        run: chmod +x ./scripts/upload-version.sh
+
       - name: Publish project to CRMM
         run: ./scripts/upload-version.sh
         env:
