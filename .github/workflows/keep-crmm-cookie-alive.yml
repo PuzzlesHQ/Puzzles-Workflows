@@ -9,6 +9,6 @@ jobs:
 
     steps:
       - name: Run CRMM keep-alive script
-        run: ./scripts/keep-crmm-cookie-alive.sh
+        run: ~/scripts/keep-crmm-cookie-alive.sh
         env:
           API_COOKIE: ${{ secrets.crmm_cookie }}
