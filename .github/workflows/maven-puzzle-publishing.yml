@@ -44,7 +44,6 @@ jobs:
         run: gradle build
 
       - name: Publish to PuzzleHQsMaven
-        if: ${{ secrets.MAVEN_PUZZLE_USERNAME && secrets.MAVEN_PUZZLE_PASSWORD && secrets.MAVEN_PUZZLE_URL }}
         run: gradle publishMavenPublicationToPuzzleHQsMavenRepository
         env:
           MAVEN_NAME: ${{ secrets.MAVEN_PUZZLE_USERNAME }} # token username (username)
