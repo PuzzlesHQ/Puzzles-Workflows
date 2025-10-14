@@ -41,6 +41,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Puzzles-Workflows
+        uses: actions/checkout@v4
+        with:
+          repository: PuzzlesHQ/Puzzles-Workflows
+          ref: main
+          path: Puzzles-Workflows
+    
       - uses: actions/checkout@v4
 
       - name: Set up JDK
@@ -58,10 +65,10 @@ jobs:
         run: gradle build
 
       - name: chmod script
-        run: chmod +x ./scripts/crmm-uploader.sh
+        run: chmod +x ./Puzzles-Workflows/scripts/crmm-uploader.sh
 
       - name: Publish project to CRMM
-        run: ./scripts/crmm-uploader.sh
+        run: ./Puzzles-Workflows/scripts/crmm-uploader.sh
         env:
           API_COOKIE: ${{ secrets.CRMM_COOKIE }}
           PROJECT_ID: ${{ inputs.project-id }}
