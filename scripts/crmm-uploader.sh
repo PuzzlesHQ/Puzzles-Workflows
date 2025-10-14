@@ -26,15 +26,6 @@ game_versions_json=$(echo "$GAME_VERSIONS" | awk -v q='"' 'BEGIN{ORS=","} {split
 
 echo "Uploading version $VERSION for project $PROJECT_ID..."
 
-echo "title=$TITLE" \
-  -F "changelog=$CHANGELOG" \
-  -F "featured=${FEATURED:-true}" \
-  -F "releaseChannel=${RELEASE_CHANNEL:-release}" \
-  -F "versionNumber=$VERSION" \
-  -F "loaders=[$loaders_json]" \
-  -F "gameVersions=[$game_versions_json]" \
-  -F "primaryFile=@$PRIMARY_FILE"
-
 curl -X POST "https://api.crmm.tech/api/project/$PROJECT_ID/version" \
   -H "Cookie: auth-token=$API_COOKIE" \
   -F "title=$TITLE" \
