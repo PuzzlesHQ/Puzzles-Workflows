@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ls -a
+ls -a build/libs/
 
 # Required environment variables:
 # API_COOKIE - auth cookie
