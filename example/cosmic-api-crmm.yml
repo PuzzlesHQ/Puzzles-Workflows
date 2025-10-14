@@ -17,7 +17,7 @@ jobs:
 
 
       - name: Upload version to CRMM
-        uses: PuzzlesHQ/Puzzles-Workflows/.github/workflows/upload-version.yml
+        uses: PuzzlesHQ/Puzzles-Workflows/.github/workflows/upload-version.yml@main
         with:
           project-slug: "RCSwbKUrOaudoth8pg"
           title: ${{ github.event.release.name }}
