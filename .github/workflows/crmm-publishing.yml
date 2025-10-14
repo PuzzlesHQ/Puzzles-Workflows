@@ -3,7 +3,7 @@ name: Publish project to CRMM
 on:
   workflow_call:
     secrets:
-      crmm_cookie: 
+      CRMM_COOKIE: 
         required: true 
     inputs:
       project-id:
@@ -63,7 +63,7 @@ jobs:
       - name: Publish project to CRMM
         run: ./scripts/upload-version.sh
         env:
-          API_COOKIE: ${{ secrets.crmm_cookie }}
+          API_COOKIE: ${{ secrets.CRMM_COOKIE }}
           PROJECT_ID: ${{ inputs.project-id }}
           TITLE: ${{ inputs.title }}
           CHANGELOG: ${{ inputs.changelog }}
