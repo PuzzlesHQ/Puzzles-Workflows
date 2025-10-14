@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+ls -a
+
 # Required environment variables:
 # API_COOKIE - auth cookie
 # PROJECT_SLUG - project slug or ID
