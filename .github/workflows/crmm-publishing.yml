@@ -2,6 +2,9 @@ name: Publish project to CRMM
 
 on:
   workflow_call:
+    secrets:
+      crmm_cookie: 
+        required: true 
     inputs:
       project-id:
         required: true
