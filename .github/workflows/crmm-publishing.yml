@@ -58,10 +58,10 @@ jobs:
         run: gradle build
 
       - name: chmod script
-        run: chmod +x ./scripts/upload-version.sh
+        run: chmod +x ./scripts/crmm-uploader.sh
 
       - name: Publish project to CRMM
-        run: ./scripts/upload-version.sh
+        run: ./scripts/crmm-uploader.sh
         env:
           API_COOKIE: ${{ secrets.CRMM_COOKIE }}
           PROJECT_ID: ${{ inputs.project-id }}
