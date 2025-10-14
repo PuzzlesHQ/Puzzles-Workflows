@@ -40,15 +40,15 @@ jobs:
   crmm-publish:
     runs-on: ubuntu-latest
 
-    steps:
+    steps:    
+      - uses: actions/checkout@v4
+
       - name: Checkout Puzzles-Workflows
         uses: actions/checkout@v4
         with:
           repository: PuzzlesHQ/Puzzles-Workflows
           ref: main
           path: Puzzles-Workflows
-    
-      - uses: actions/checkout@v4
 
       - name: Set up JDK
         uses: actions/setup-java@v4
