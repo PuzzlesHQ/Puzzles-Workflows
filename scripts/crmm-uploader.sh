@@ -45,5 +45,6 @@ success=$(echo "$response" | jq -r '.success')
 if [ "$success" = "false" ]; then
   echo "$response"
   exit 1
+fi
 
   
