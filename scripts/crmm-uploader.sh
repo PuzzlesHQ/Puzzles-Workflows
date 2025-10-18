@@ -26,6 +26,7 @@ game_versions_json=$(echo "$GAME_VERSIONS" | awk -v q='"' 'BEGIN{ORS=","} {split
 
 echo "Uploading version $VERSION for project $PROJECT_ID..."
 
+response=$(
 curl -X POST "https://api.crmm.tech/api/project/$PROJECT_ID/version" \
   -H "Cookie: auth-token=$API_COOKIE" \
   -F "title=$TITLE" \
@@ -36,3 +37,13 @@ curl -X POST "https://api.crmm.tech/api/project/$PROJECT_ID/version" \
   -F "loaders=[$loaders_json]" \
   -F "gameVersions=[$game_versions_json]" \
   -F "primaryFile=@$PRIMARY_FILE"
+  )
+
+
+success=$(echo "$response" | jq -r '.success')
+
+if [ "$success" = "false" ]; then
+  echo "$response"
+  exit 1
+
+  
