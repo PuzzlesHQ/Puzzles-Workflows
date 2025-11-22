@@ -62,7 +62,7 @@ jobs:
           gradle-version: '8.14'
 
       - name: Build project
-        run: gradle buildMergedBundleJar
+        run: gradle buildMergedJar
 
       - name: chmod script
         run: chmod +x ./Puzzles-Workflows/scripts/crmm-uploader.sh
