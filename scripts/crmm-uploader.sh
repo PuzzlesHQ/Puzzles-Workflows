@@ -4,7 +4,7 @@ set -euo pipefail
 ls -a build/libs/
 
 # Required environment variables:
-# API_COOKIE - auth cookie
+# TOKEN - auth token
 # PROJECT_SLUG - project slug or ID
 # TITLE - version title
 # CHANGELOG - changelog text
@@ -28,7 +28,7 @@ echo "Uploading version $VERSION for project $PROJECT_ID..."
 
 response=$(
 curl -X POST "https://api.crmm.tech/api/project/$PROJECT_ID/version" \
-  -H "Cookie: auth-token=$API_COOKIE" \
+  -H "Authorization: $TOKEN" \
   -F "title=$TITLE" \
   -F "changelog=$CHANGELOG" \
   -F "featured=${FEATURED:-true}" \
