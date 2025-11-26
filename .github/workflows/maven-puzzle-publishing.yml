@@ -40,9 +40,6 @@ jobs:
         with:
           gradle-version: '8.14'
 
-      - name: Build project
-        run: gradle build
-
       - name: Publish to PuzzleHQsMaven
         run: gradle publishMavenPublicationToPuzzleHQsMavenRepository
         env:
