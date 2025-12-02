@@ -15,7 +15,7 @@ ls -a build/libs/
 # FEATURED - true/false
 # RELEASE_CHANNEL - release/beta/alpha/dev
 
-if [[ -z "${API_COOKIE:-}" || -z "${PROJECT_ID:-}" || -z "${TITLE:-}" || -z "${VERSION:-}" || -z "${PRIMARY_FILE:-}" ]]; then
+if [[ -z "${TOKEN:-}" || -z "${PROJECT_ID:-}" || -z "${TITLE:-}" || -z "${VERSION:-}" || -z "${PRIMARY_FILE:-}" ]]; then
   echo "Missing required environment variables!"
   exit 1
 fi
