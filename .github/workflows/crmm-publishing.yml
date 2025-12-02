@@ -70,7 +70,7 @@ jobs:
       - name: Publish project to CRMM
         run: ./Puzzles-Workflows/scripts/crmm-uploader.sh
         env:
-          API_COOKIE: ${{ secrets.CRMM_TOKEN }}
+          TOKEN: ${{ secrets.CRMM_TOKEN }}
           PROJECT_ID: ${{ inputs.project-id }}
           TITLE: ${{ inputs.title }}
           CHANGELOG: ${{ inputs.changelog }}
