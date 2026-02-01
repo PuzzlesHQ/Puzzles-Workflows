@@ -40,10 +40,6 @@ jobs:
         with:
           gradle-version: '8.14'
 
-      # debuging 
-      - name: debugging
-        run: ./gradlew tasks --all | grep publish
-
       - name: Publish to PuzzleHQsMaven
         run: gradle publishMavenPublicationToPuzzleHQsMavenRepository
         env:
