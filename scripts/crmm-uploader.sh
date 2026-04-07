@@ -27,7 +27,7 @@ game_versions_json=$(echo "$GAME_VERSIONS" | awk -v q='"' 'BEGIN{ORS=","} {split
 echo "Uploading version $VERSION for project $PROJECT_ID..."
 
 response=$(
-curl -X POST "https://api.crmm.tech/api/project/$PROJECT_ID/version" \
+curl -X POST "https://api.crmods.org/api/project/$PROJECT_ID/version" \
   -H "Authorization: $TOKEN" \
   -F "title=$TITLE" \
   -F "changelog=$CHANGELOG" \
